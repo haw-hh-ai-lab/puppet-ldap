@@ -42,7 +42,16 @@ TLSCertificateKeyFile  <%= scope.lookupvar('ldap::params::ssl_prefix') %>/<%= @s
 <% end -%>
 
 #######################################################################
-
+<% if @proxy == true then -%>
+database        ldap
+suffix          "dc=example,dc=com"
+uri             "ldap://ldap.example.com"
+idassert-bind   bindmethod=simple
+                binddn="cn=Proxy,dc=example,dc=com"
+                credentials=proxy
+                authzID="dn:cn=Sandbox,dc=example,dc=com"
+<% end -%>
+<% if @backend_bdb == true then -%>
 # FIXME: puppet
 backend		bdb
 
@@ -52,6 +61,7 @@ suffix		"<%= @suffix %>"
 directory	<%= scope.lookupvar('ldap::params::db_prefix') %>
 rootdn		"<%= @rootdn %>"
 rootpw		"<%= @rootpw %>"
+<% end -%>
 
 #######################################################################
 # << Syncprov

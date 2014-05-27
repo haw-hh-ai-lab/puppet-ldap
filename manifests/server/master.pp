@@ -123,6 +123,8 @@ class ldap::server::master(
   $suffix,
   $rootpw,
   $rootdn              = "cn=admin,${suffix}",
+  $backend_bdb         = true,
+  $proxy               = false,
   $schema_inc          = [],
   $modules_inc         = [],
   $index_inc           = [],
