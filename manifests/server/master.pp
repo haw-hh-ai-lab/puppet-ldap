@@ -126,7 +126,7 @@ class ldap::server::master(
   $backend_bdb         = true,
   $proxy               = false,
   $schema_inc          = [],
-  $modules_inc         = $ldap::params::modules_base,
+  $modules_inc         = [],
   $index_inc           = [],
   $cnconfig_attrs      = {},
   $log_level           = '0',

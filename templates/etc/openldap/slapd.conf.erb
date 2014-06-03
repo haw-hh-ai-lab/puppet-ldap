@@ -25,7 +25,7 @@ argsfile        <%= scope.lookupvar('ldap::params::server_run') %>/slapd.args
 loglevel	<%= @log_level %>
 
 modulepath	<%= scope.lookupvar('ldap::params::module_prefix') %>
-<% scope.lookupvar('ldap::server::master::modules_inc').each do |mod| -%>
+<% scope.lookupvar('ldap::params::modules_base').each do |mod| -%>
 moduleload	<%= mod %>
 <% end -%>
 
