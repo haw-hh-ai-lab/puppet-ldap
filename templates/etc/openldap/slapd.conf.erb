@@ -44,12 +44,11 @@ TLSCertificateKeyFile  <%= scope.lookupvar('ldap::params::ssl_prefix') %>/<%= @s
 #######################################################################
 <% if @proxy == true then -%>
 database        ldap
-suffix          "dc=example,dc=com"
-uri             "ldap://ldap.example.com"
-idassert-bind   bindmethod=simple
-                binddn="cn=Proxy,dc=example,dc=com"
-                credentials=proxy
-                authzID="dn:cn=Sandbox,dc=example,dc=com"
+suffix          "ou=informatik,ou=haw-hamburg,dc=de"
+uri             "ldap://dir-read.informatik.haw-hamburg.de"
+idassert-bind   bindmethod=<%= scope.lookupvar('ldap::server::master::ldap_proxy_methode') %>
+                binddn=<%= scope.lookupvar('ldap::server::master::ldap_proxy_binddn') %>
+                credentials=<%= scope.lookupvar('ldap::server::master::ldap_proxy_credentials') %>
 <% end -%>
 <% if @backend_bdb == true then -%>
 # FIXME: puppet
