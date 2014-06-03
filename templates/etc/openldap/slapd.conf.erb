@@ -90,13 +90,13 @@ updateref <%= @sync_provider %>
 <% end -%>
 
 #######################################################################
-
+<% if @backend_bdb == true then -%>
 checkpoint   512 30
 dbconfig set_cachesize      0 2097152 0
 dbconfig set_lk_max_objects 1500
 dbconfig set_lk_max_locks   1500
 dbconfig set_lk_max_lockers 1500
-
+<% end -%>
 #######################################################################
 
 lastmod		on
