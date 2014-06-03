@@ -143,7 +143,9 @@ class ldap::server::master(
   $ensure              = present,
   $ldap_proxy_methode  = 'simple',
   $ldap_proxy_binddn   = '',
-  $ldap_proxy_credentials  = '',  
+  $ldap_proxy_credentials  = '',
+  $ldap_proxy_server  = '',  
+  $ldap_proxy_suffix  = '',  
   ) {
 
   require ldap

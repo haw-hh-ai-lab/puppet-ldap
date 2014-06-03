@@ -44,8 +44,8 @@ TLSCertificateKeyFile  <%= scope.lookupvar('ldap::params::ssl_prefix') %>/<%= @s
 #######################################################################
 <% if @proxy == true then -%>
 database        ldap
-suffix          "ou=informatik,ou=haw-hamburg,dc=de"
-uri             "ldap://dir-read.informatik.haw-hamburg.de"
+suffix          "<%= scope.lookupvar('ldap::server::master::ldap_proxy_suffix') %>"
+uri             "<%= scope.lookupvar('ldap::server::master::ldap_proxy_server') %>"
 idassert-bind   bindmethod=<%= scope.lookupvar('ldap::server::master::ldap_proxy_methode') %>
                 binddn=<%= scope.lookupvar('ldap::server::master::ldap_proxy_binddn') %>
                 credentials=<%= scope.lookupvar('ldap::server::master::ldap_proxy_credentials') %>
